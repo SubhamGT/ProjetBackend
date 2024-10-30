@@ -1,0 +1,21 @@
+port 3000 front npx http-server . -p 3000 -P "http://localhost:3000?"
+nodemon server back
+NODEMON (sert a modifier le fichier dans le server qu'on a sauvgarder sans devoir le relancer manuellement )
+npm install mongoose mongoose-unique-validator
+
+chatgpt corection du modifiez les routes pour prenre en compte les fichier:
+
+Dans votre fichier de routes stuff.js, vous appelez stuffCtrl.getAllThings, mais dans votre fichier de contrôleur controllers/stuff.js, cette fonction est probablement nommée getAllStuff. Cela entraîne une erreur car getAllThings n'existe pas dans stuffCtrl.
+
+Pour corriger cela :
+
+Vérifiez et harmonisez les noms des fonctions : Renommez getAllThings en getAllStuff dans le fichier de routes pour correspondre à la fonction existante.
+
+Mettez à jour le fichier de routes :
+
+Dans routes/stuff.js, modifiez cette ligne :
+
+javascript
+Copier le code
+router.get('/', auth, stuffCtrl.getAllStuff); // Remplacez getAllThings par getAllStuff
+Après ces ajustements, redémarrez le serveur pour que les modifications soient prises en compte.
